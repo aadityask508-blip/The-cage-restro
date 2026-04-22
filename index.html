@@ -1,79 +1,200 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Cage Restro & Bar | Kathmandu</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet"><style>
-:root{--neon:#ff6a00;--dark:#0b0b0b;--card:#141414}
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-body{font-family:'Poppins',sans-serif;background:var(--dark);color:#fff}
-nav{position:fixed;width:100%;top:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);padding:10px 20px;display:flex;justify-content:space-between;z-index:1000}
-nav h1{color:var(--neon);text-shadow:0 0 10px var(--neon)}
-nav a{margin-left:15px;font-size:14px}
-.hero{height:100vh;background:url('https://images.unsplash.com/photo-1514933651103-005eec06c04b') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;position:relative}
-.hero::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.75)}
-.hero-content{position:relative;z-index:2}
-.hero h1{font-size:3rem;color:var(--neon);text-shadow:0 0 20px var(--neon)}
-.hero p{margin:15px 0;color:#ccc}
-.btn{padding:12px 20px;border-radius:30px;margin:5px;cursor:pointer;font-weight:600;border:none;transition:.3s}
-.btn-primary{background:var(--neon);box-shadow:0 0 15px var(--neon)}
-.btn-primary:hover{transform:scale(1.1)}
-.btn-outline{border:2px solid #fff}
-.btn-outline:hover{background:#fff;color:#000}
-section{padding:70px 20px;max-width:1100px;margin:auto}
-h2{text-align:center;margin-bottom:20px;color:#ff3c00}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:var(--card);padding:20px;border-radius:15px;text-align:center;transition:.3s}
-.card:hover{transform:translateY(-5px);box-shadow:0 0 20px var(--neon)}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
-.gallery img{width:100%;border-radius:10px}
-footer{background:black;text-align:center;padding:20px;border-top:1px solid #222}
-.call-btn{position:fixed;bottom:20px;right:20px;background:var(--neon);padding:15px;border-radius:50%;box-shadow:0 0 15px var(--neon);cursor:pointer}
-input{width:100%;padding:10px;margin:5px 0;border-radius:8px;border:none}
-</style></head><body>
-<nav>
-<h1>The Cage</h1>
-<div>
-<a href="#menu">Menu</a>
-<a href="#booking">Book</a>
-<a href="#contact">Contact</a>
-</div>
-</nav><section class="hero">
-<div class="hero-content">
-<h1>Kathmandu’s Favorite Hangout Spot</h1>
-<p>Great food. Better vibes.</p>
-<button class="btn btn-primary" onclick="scrollToSection('menu')">View Menu</button>
-<button class="btn btn-outline" onclick="scrollToSection('booking')">Book a Table</button>
-</div>
-</section><section>
-<h2>About Us</h2>
-<p style="text-align:center;color:#ccc;">Your go-to hangout in Toha for food, drinks, and unforgettable nights.</p>
-</section><section>
-<h2>🔥 Today’s Special</h2>
-<div class="card"><h3 id="special"></h3></div>
-</section><section id="menu">
-<h2>Menu</h2>
-<div class="grid">
-<div class="card">🥟 Momo Platters</div>
-<div class="card">🍗 Chili Chicken</div>
-<div class="card">🍔 Burgers</div>
-<div class="card">🍹 Cocktails</div>
-</div>
-</section><section id="booking">
-<h2>Reserve Table</h2>
-<div class="card">
-<input placeholder="Name">
-<input type="date">
-<input type="time">
-<input type="number" placeholder="Guests">
-<button class="btn btn-primary" onclick="alert('Reservation sent!')">Book</button>
-</div>
-</section><section id="contact">
-<h2>Contact</h2>
-<p style="text-align:center;">📍 Toha, Kathmandu</p>
-<p style="text-align:center;">📞 +977 9823707126</p>
-<button class="btn btn-primary" onclick="callNow()">Call Now</button>
-<button class="btn btn-outline" onclick="whatsapp()">WhatsApp</button>
-<iframe src="https://maps.google.com/maps?q=toha%20kathmandu&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="250"></iframe>
-</section><footer>
-<p>© The Cage Restro & Bar</p>
-</footer><div class="call-btn" onclick="callNow()">📞</div><script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cage Restro & Bar | Kathmandu's Favorite Hangout</title>
+    <meta name="description" content="The best restro bar in Dhapasi/Toha. Join us for Momo platters, cocktails, and live music at The Cage.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --neon-orange: #FF4D00;
+            --neon-blue: #00D4FF;
+            --dark-bg: #0A0A0A;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .font-brand { font-family: 'Montserrat', sans-serif; }
+
+        /* Neon Glow Effects */
+        .glow-orange { text-shadow: 0 0 10px var(--neon-orange), 0 0 20px var(--neon-orange); }
+        .glow-blue { text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue); }
+        
+        .btn-neon-orange {
+            border: 2px solid var(--neon-orange);
+            box-shadow: 0 0 10px rgba(255, 77, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .btn-neon-orange:hover {
+            background: var(--neon-orange);
+            color: black;
+            box-shadow: 0 0 30px var(--neon-orange);
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full z-50 glass py-4 px-6 flex justify-between items-center">
+        <div class="text-2xl font-brand font-black italic tracking-tighter">
+            THE <span class="text-[#FF4D00]">CAGE</span>
+        </div>
+        <div class="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest">
+            <a href="#menu" class="hover:text-[#FF4D00]">Menu</a>
+            <a href="#events" class="hover:text-[#00D4FF]">Events</a>
+            <a href="#contact" class="hover:text-[#FF4D00]">Find Us</a>
+        </div>
+        <a href="tel:+9779823707126" class="bg-[#FF4D00] text-black px-5 py-2 rounded-full font-bold text-xs">CALL NOW</a>
+    </nav>
+
+    <section class="relative h-screen flex items-center justify-center text-center px-6">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop" 
+                 class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0A0A0A]"></div>
+        </div>
+        
+        <div class="relative z-10">
+            <h1 class="text-6xl md:text-8xl font-brand font-black italic leading-none mb-4 uppercase">
+                A Taste You'll <br> <span class="text-[#FF4D00] glow-orange">Remember</span>
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl max-w-xl mx-auto mb-8 font-light">
+                Kathmandu’s Favorite Hangout Spot. Great food. Better vibes.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#menu" class="btn-neon-orange py-4 px-10 rounded-full font-bold uppercase tracking-tighter">Explore Menu</a>
+                <a href="#events" class="border-2 border-[#00D4FF] text-[#00D4FF] py-4 px-10 rounded-full font-bold uppercase tracking-tighter hover:bg-[#00D4FF] hover:text-black transition-all">What's On</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="py-20 px-6 max-w-6xl mx-auto reveal">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="glass p-10 rounded-3xl border-l-4 border-[#FF4D00]">
+                <h4 class="text-[#FF4D00] font-bold text-xs tracking-widest mb-2 uppercase">Today's Special</h4>
+                <h3 class="text-4xl font-brand font-black mb-4 italic">NAGA CHILI MOMO</h3>
+                <p class="text-gray-400 mb-6">Extra spicy, double steamed, and tossed in our secret Naga sauce. Not for the faint-hearted.</p>
+                <span class="text-2xl font-bold">रू 380</span>
+            </div>
+            <div class="glass p-10 rounded-3xl border-l-4 border-[#00D4FF]">
+                <h4 class="text-[#00D4FF] font-bold text-xs tracking-widest mb-2 uppercase">Next Event</h4>
+                <h3 class="text-4xl font-brand font-black mb-4 italic">BEATS & BREWS</h3>
+                <p class="text-gray-400 mb-6">Every Friday night. Live DJ set starting at 8:00 PM. No cover charge, just vibes.</p>
+                <button onclick="window.location.href='tel:+9779823707126'" class="text-[#00D4FF] font-bold">Book a Table <i class="fas fa-arrow-right ml-2"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-20 bg-[#0F0F0F] px-6">
+        <div class="max-w-6xl mx-auto text-center mb-16 reveal">
+            <h2 class="text-5xl font-brand font-black italic mb-4 uppercase">The <span class="text-[#FF4D00]">Menu</span></h2>
+            <p class="text-gray-500 uppercase tracking-widest text-sm">Crafted for the bold</p>
+        </div>
+
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+            <div class="glass group overflow-hidden rounded-2xl">
+                <div class="h-48 bg-gray-800 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h5 class="font-bold text-xl">The Cage Burger</h5>
+                        <span class="text-[#FF4D00]">रू 550</span>
+                    </div>
+                    <p class="text-gray-500 text-sm">Double patty, extra cheese, caramelized onions.</p>
+                </div>
+            </div>
+            <div class="glass group overflow-hidden rounded-2xl">
+                <div class="h-48 bg-gray-800 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1544145945-f904253d0c7b?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h5 class="font-bold text-xl">Signature Cocktails</h5>
+                        <span class="text-[#FF4D00]">रू 700</span>
+                    </div>
+                    <p class="text-gray-500 text-sm">Ask our bartender for the seasonal 'Cage Special'.</p>
+                </div>
+            </div>
+            <div class="glass group overflow-hidden rounded-2xl">
+                <div class="h-48 bg-gray-800 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h5 class="font-bold text-xl">Crispy Chicken Chili</h5>
+                        <span class="text-[#FF4D00]">रू 450</span>
+                    </div>
+                    <p class="text-gray-500 text-sm">The classic Kathmandu favorite. Spicy & crunchy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-6 max-w-4xl mx-auto text-center reveal">
+        <h2 class="text-4xl font-brand font-black italic mb-8 uppercase">Find The <span class="text-[#00D4FF]">Cage</span></h2>
+        <div class="mb-8">
+            <p class="text-xl font-bold">Toha, Ward 4, Kathmandu</p>
+            <p class="text-gray-400">Near Dhapasi Heights</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6">
+            <a href="tel:+9779823707126" class="btn-neon-orange px-8 py-4 rounded-xl font-bold flex items-center gap-3">
+                <i class="fas fa-phone"></i> CALL US
+            </a>
+            <a href="https://facebook.com" class="border-2 border-white/20 px-8 py-4 rounded-xl font-bold flex items-center gap-3 hover:bg-white hover:text-black transition-all">
+                <i class="fab fa-facebook"></i> FACEBOOK
+            </a>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center border-t border-white/5 text-gray-600 text-xs tracking-widest uppercase">
+        <p class="mb-2">Open Daily: 12 PM - 11 PM</p>
+        <p>&copy; 2024 The Cage Restro & Bar | Dhapasi, Kathmandu</p>
+    </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+    </script>
+
+</body>
+</html>
